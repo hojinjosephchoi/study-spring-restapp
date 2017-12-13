@@ -29,6 +29,7 @@ public class AppConfig implements TransactionManagementConfigurer  {
 		return new EmbeddedDatabaseBuilder()
 				.setName("testdb") // DB 이름 설정
 				.setType(EmbeddedDatabaseType.HSQL) // DB 종류 설정
+				.setScriptEncoding("UTF-8")
 				.addScript("schema.sql") // 스키마 스크립트 추가
 				.addScript("data.sql") // 데이터 스크립트 추가
 				.build();

@@ -56,18 +56,18 @@ public class BookController {
 //	}
 
 	
-	@RequestMapping(method = RequestMethod.GET)
-	@ResponseBody
-	public Resources<BookResource> getBooks(Model model) {
-		List<Book> books = bookService.getBooks();
-
-		BookResourceAssembler assembler = new BookResourceAssembler();
-		List<BookResource> resources = assembler.toResources(books);
-
-		Resources<BookResource> wrapped = new Resources<BookResource>(resources, 
-				linkTo(BookController.class).withSelfRel());
-		return wrapped;
-	}
+//	@RequestMapping(method = RequestMethod.GET)
+//	@ResponseBody
+//	public Resources<BookResource> getBooks(Model model) {
+//		List<Book> books = bookService.getBooks();
+//
+//		BookResourceAssembler assembler = new BookResourceAssembler();
+//		List<BookResource> resources = assembler.toResources(books);
+//
+//		Resources<BookResource> wrapped = new Resources<BookResource>(resources,
+//				linkTo(BookController.class).withSelfRel());
+//		return wrapped;
+//	}
 	
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)

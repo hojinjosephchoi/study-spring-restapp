@@ -22,8 +22,8 @@ import org.springframework.web.servlet.config.annotation.ContentNegotiationConfi
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-@Configuration
 @EnableWebMvc
+@Configuration
 @ComponentScan(basePackages = { "devfun.bookstore.rest.controller" }, useDefaultFilters = false, includeFilters = { @Filter(Controller.class),  @Filter(ControllerAdvice.class) })
 public class RestAppConfig extends WebMvcConfigurerAdapter {
 
