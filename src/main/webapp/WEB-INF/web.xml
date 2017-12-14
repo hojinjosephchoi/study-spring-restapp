@@ -4,39 +4,26 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 	
 	<display-name>REST APP</display-name>
-	
+
+    <!-- ContextLoaderListener : ApplicationContext 생성 -->
 	<context-param>
 		<param-name>contextClass</param-name>
 		<param-value>
-org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+            org.springframework.web.context.support.AnnotationConfigWebApplicationContext
 		</param-value>
 	</context-param>
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>devfun.bookstore.common.config</param-value>
 	</context-param>
+    <listener>
+        <listener-class>
+            org.springframework.web.context.ContextLoaderListener
+        </listener-class>
+    </listener>
 	
-	<filter>
-		<filter-name>encodingFilter</filter-name>
-		<filter-class>
-			org.springframework.web.filter.CharacterEncodingFilter
-		</filter-class>
-		<init-param>
-			<param-name>encoding</param-name>
-			<param-value>UTF-8</param-value>
-		</init-param>
-	</filter>
-	<filter-mapping>
-		<filter-name>encodingFilter</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
-	
-	<listener>
-		<listener-class>
-			org.springframework.web.context.ContextLoaderListener
-		</listener-class>
-	</listener>
-	
+
+    <!-- DispatcherServlet : WebApplicationContext 생성 -->
 	<servlet>
 		<servlet-name>rest</servlet-name>
 		<servlet-class>
@@ -45,7 +32,7 @@ org.springframework.web.context.support.AnnotationConfigWebApplicationContext
 		<init-param>
 			<param-name>contextClass</param-name>
 			<param-value>
-org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+                org.springframework.web.context.support.AnnotationConfigWebApplicationContext
 			</param-value>
 		</init-param>
 		<init-param>
@@ -58,5 +45,22 @@ org.springframework.web.context.support.AnnotationConfigWebApplicationContext
 		<servlet-name>rest</servlet-name>
 		<url-pattern>/*</url-pattern>
 	</servlet-mapping>
+
+
+
+    <filter>
+        <filter-name>encodingFilter</filter-name>
+        <filter-class>
+            org.springframework.web.filter.CharacterEncodingFilter
+        </filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>encodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
 </web-app>
