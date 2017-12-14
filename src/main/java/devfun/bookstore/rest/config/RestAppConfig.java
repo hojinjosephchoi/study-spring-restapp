@@ -20,18 +20,17 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @EnableWebMvc
 @Configuration
 @ComponentScan(basePackages = { "devfun.bookstore.rest.controller" }, useDefaultFilters = false, includeFilters = { @Filter(Controller.class),  @Filter(ControllerAdvice.class) })
-public class RestAppConfig extends WebMvcConfigurerAdapter {
+public class RestAppConfig implements WebMvcConfigurer {
 
 	@Override
-	public void configureContentNegotiation(
-			ContentNegotiationConfigurer configurer) {
+	public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
 		configurer
-			.useJaf(true)
+			.useRegisteredExtensionsOnly(false)
 			.favorPathExtension(true)
 			.favorParameter(false)
 			.ignoreAcceptHeader(false)
@@ -41,8 +40,7 @@ public class RestAppConfig extends WebMvcConfigurerAdapter {
 	}
 
 	@Override
-	public void configureMessageConverters(
-			List<HttpMessageConverter<?>> converters) {
+	public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
 		converters.add(mappingJacksonHttpMessageConverter());
 		converters.add(marshallingHttpMessageConverter());
 	}
