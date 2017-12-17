@@ -19,7 +19,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.TransactionManagementConfigurer;
 
 @EnableTransactionManagement
-@MapperScan("devfun.bookstore.common.mapper")
+@MapperScan("devfun.bookstore.common.mapper") //대상 패키지에 있는 Mapper 자동스캔
 @ComponentScan(basePackages = {"devfun.bookstore.common.service"}, useDefaultFilters = false, includeFilters = {@Filter(Service.class)})
 @Configuration
 public class AppConfig implements TransactionManagementConfigurer  {
