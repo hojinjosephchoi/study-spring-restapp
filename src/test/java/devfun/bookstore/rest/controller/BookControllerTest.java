@@ -44,10 +44,11 @@ public class BookControllerTest {
 
 	@Test
 	public void testBook() throws Exception {
-		MockHttpServletRequestBuilder requestBuilder 
-			= MockMvcRequestBuilders
+		MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
 				.get("/books/1")
-				.accept(MediaType.valueOf("text/plain;charset=UTF-8"));
+				.accept(MediaType.valueOf("application/json;charset=UTF-8"));
+//				.accept(MediaType.valueOf("text/plain;charset=UTF-8"));
+
 		this.mockMvc.perform(requestBuilder).andDo(print())
 				.andExpect(status().isOk());
 	}
