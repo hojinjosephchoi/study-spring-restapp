@@ -4,6 +4,7 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 
 import java.util.List;
 
+import devfun.bookstore.rest.domain.BookList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.Link;
 import org.springframework.hateoas.Resources;
@@ -30,30 +31,32 @@ public class BookController {
 	@Autowired
 	BookService bookService;
 
-	@RequestMapping(method = RequestMethod.GET)
-	@ResponseBody
-	public List<Book> getBooks() {
-		List<Book> books = bookService.getBooks();
-		return books;
-	}
-//	
 //	@RequestMapping(method = RequestMethod.GET)
 //	@ResponseBody
-//	public BookList getBooks() {
+//	public List<Book> getBooks() {
 //		List<Book> books = bookService.getBooks();
-//		return new BookList(books);
+//		return books;
 //	}
-//
-//
-//	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-//	@ResponseBody
-//	public Book getBook(@PathVariable("id") Long id) {
-//		Book book = bookService.getBook(id);
-//		if (book == null) {
-//			throw new ResourceNotFoundException();
-//		}
-//		return book;
-//	}
+
+
+	@RequestMapping(method = RequestMethod.GET)
+	@ResponseBody
+	public BookList getBooks() {
+		List<Book> books = bookService.getBooks();
+		return new BookList(books);
+	}
+
+
+
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	@ResponseBody
+	public Book getBook(@PathVariable("id") Long id) {
+		Book book = bookService.getBook(id);
+		if (book == null) {
+			throw new ResourceNotFoundException();
+		}
+		return book;
+	}
 
 	
 //	@RequestMapping(method = RequestMethod.GET)
@@ -70,20 +73,21 @@ public class BookController {
 //	}
 	
 	
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	@ResponseBody
-	public BookResource getBook(@PathVariable("id") Long id) {
-		Book book = bookService.getBook(id);
-		if (book == null) {
-			throw new ResourceNotFoundException();
-		}
-		BookResourceAssembler assembler = new BookResourceAssembler();
-		BookResource resource = assembler.toResource(book);
-		Link link = new Link("http://localhost:8080/restapp/books/1/reviews", "reviews");
-		resource.add(link);
-		return resource;
-	}
-	
+//	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+//	@ResponseBody
+//	public BookResource getBook(@PathVariable("id") Long id) {
+//		Book book = bookService.getBook(id);
+//		if (book == null) {
+//			throw new ResourceNotFoundException();
+//		}
+//		BookResourceAssembler assembler = new BookResourceAssembler();
+//		BookResource resource = assembler.toResource(book);
+//		Link link = new Link("http://localhost:8080/restapp/books/1/reviews", "reviews");
+//		resource.add(link);
+//		return resource;
+//	}
+
+
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	@ResponseBody
