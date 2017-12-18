@@ -31,8 +31,8 @@ public class RestAppConfig implements WebMvcConfigurer {
 	public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
 		configurer
 			.useRegisteredExtensionsOnly(false)
-			.favorPathExtension(true)
-			.favorParameter(false)
+			.favorPathExtension(true)	//xxx.xml, xxx.json
+			.favorParameter(true)		//xxx?format=xml, xxx?format=json
 			.ignoreAcceptHeader(false)
 			.defaultContentType(MediaType.APPLICATION_JSON)
 			.mediaType("json", MediaType.APPLICATION_JSON)
