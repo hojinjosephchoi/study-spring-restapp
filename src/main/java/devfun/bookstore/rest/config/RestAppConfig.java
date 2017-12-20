@@ -20,6 +20,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 @EnableWebMvc
 @Configuration
 @ComponentScan(basePackages = {"devfun.bookstore.rest.controller"}, useDefaultFilters = false, includeFilters = {@Filter(Controller.class), @Filter(ControllerAdvice.class)})
@@ -47,12 +48,12 @@ public class RestAppConfig implements WebMvcConfigurer {
     public MappingJackson2HttpMessageConverter mappingJacksonHttpMessageConverter() {
         MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
 
-//        XML과 같이 JSON에서 Root Element 사용을 위한 설정
+//        //XML과 같이 JSON에서 Root Element 사용을 위한 설정
 //        ObjectMapper objectMapper = converter.getObjectMapper();
 //        objectMapper.configure(DeserializationFeature.UNWRAP_ROOT_VALUE, true);
 //        objectMapper.configure(SerializationFeature.WRAP_ROOT_VALUE, true);
-
-//        @JsonRootName 없이 JAXB 어노테이션의 값을 사용하여 JSON 변환에 이용
+//
+//        //@JsonRootName 없이 JAXB 어노테이션의 값을 사용하여 JSON 변환에 이용
 //        JaxbAnnotationModule module = new JaxbAnnotationModule();
 //        objectMapper.registerModule(module);
 
@@ -84,9 +85,9 @@ public class RestAppConfig implements WebMvcConfigurer {
     }
 
 
+//    // 명시적으로 Exception Handler를 설정하지 않아도 됨.
 //    @Override
-//    public void configureHandlerExceptionResolvers(
-//            List<HandlerExceptionResolver> exceptionResolvers) {
+//    public void configureHandlerExceptionResolvers(List<HandlerExceptionResolver> exceptionResolvers) {
 //        exceptionResolvers.add(exceptionHandlerExceptionResolver());
 //    }
 //
