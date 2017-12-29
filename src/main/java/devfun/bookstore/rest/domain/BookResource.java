@@ -1,59 +1,58 @@
 package devfun.bookstore.rest.domain;
 
-import java.util.Date;
+import org.springframework.hateoas.ResourceSupport;
 
 import javax.xml.bind.annotation.XmlRootElement;
-
-import org.springframework.hateoas.ResourceSupport;
+import java.util.Date;
 
 @XmlRootElement(name = "book")
 public class BookResource extends ResourceSupport {
 
-	private Long bookId;
-	private String title;
-	private String creator;
-	private String type;
-	private Date date;
+    private Long bookId;
+    private String title;
+    private String creator;
+    private String type;
+    private Date date;
 
-	
-	public Long getBookId() {
-		return bookId;
-	}
 
-	public void setBookId(Long bookId) {
-		this.bookId = bookId;
-	}
+    public Long getBookId() {
+        return bookId;
+    }
 
-	public String getTitle() {
-		return title;
-	}
+    public void setBookId(Long bookId) {
+        this.bookId = bookId;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public String getCreator() {
-		return creator;
-	}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-	public void setCreator(String creator) {
-		this.creator = creator;
-	}
+    public String getCreator() {
+        return creator;
+    }
 
-	public String getType() {
-		return type;
-	}
+    public void setCreator(String creator) {
+        this.creator = creator;
+    }
 
-	public void setType(String type) {
-		this.type = type;
-	}
+    public String getType() {
+        return type;
+    }
 
-	public Date getDate() {
-		return date;
-	}
+    public void setType(String type) {
+        this.type = type;
+    }
 
-	public void setDate(Date date) {
-		this.date = date;
-	}
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
 
 }

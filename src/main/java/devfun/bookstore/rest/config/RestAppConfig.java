@@ -75,6 +75,7 @@ public class RestAppConfig implements WebMvcConfigurer {
         marshaller.setPackagesToScan(new String[]{
                 "devfun.bookstore.common.domain",
                 "devfun.bookstore.rest.domain",
+                // Resources 클래스를 JAXB에 알려주기위함. (Hateoas)
                 "org.springframework.hateoas"});
 
         Map<String, Object> marshallerProperties = new HashMap<String, Object>();

@@ -125,6 +125,7 @@
             <version>${version.spring}</version>
         </dependency>
 
+        <!-- HATEOAS -->
         <dependency>
             <groupId>org.springframework.hateoas</groupId>
             <artifactId>spring-hateoas</artifactId>
